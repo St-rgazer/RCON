@@ -17,7 +17,7 @@
         <Label x:Name="setupLabel_Copy" Content="IP" HorizontalAlignment="Left" Margin="247,173,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="16" Foreground="White"/>
         <Label x:Name="setupLabel_Copy1" Content="PORT" HorizontalAlignment="Left" Margin="599,173,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="16" Foreground="White"/>
         <Label x:Name="setupLabel_Copy2" Content="PASSWORD" HorizontalAlignment="Left" Margin="200,196,0,0" VerticalAlignment="Top" FontFamily="Consolas" FontSize="16" Foreground="White"/>
-        <Label x:Name="errorLabel" Content="" HorizontalAlignment="Left" Margin="200,251,0,0" VerticalAlignment="Top" Foreground="Red" Width="444" FontFamily="Consolas" HorizontalContentAlignment="Center"/>
+        <Label x:Name="errorLabel" Content="" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Foreground="Red" Width="780" FontFamily="Consolas" HorizontalContentAlignment="Center"/>
     </Grid>
 
 

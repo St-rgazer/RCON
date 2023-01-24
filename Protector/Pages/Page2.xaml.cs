@@ -28,13 +28,24 @@ namespace Protector.Pages
             InitializeComponent();
         }
 
-        public static bool InitiateRCON(string ip, ushort port, string pwd)
+        public int InitiateRCON(string ip, ushort port, string pwd)
         {
             try 
             {
                 command = new MinecraftCommands(ip, port, pwd);
-                return true;
-            } catch { return false; }
+                string response = SendCommand("list");
+                if (response == "") 
+                {
+                    return 0;
+                } else
+                {
+                    consoleBox.Text += $"Connected to server {ip}:{port} RCON successfully!\n";
+                    return 1;
+                }
+            } catch
+            {
+                return 2; 
+            }
         }
 
         private string SendCommand(string cmd) 
@@ -46,9 +57,9 @@ namespace Protector.Pages
         {
             if (e.Key == Key.Return)
             {
-                cmdBox.Text = "";
                 string response = SendCommand(cmdBox.Text);
-                consoleBox.Text += $"\n{response}";
+                consoleBox.Text += $"\n> {cmdBox.Text}\n{response}";
+                cmdBox.Text = "";
             }
         }
     }

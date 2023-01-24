@@ -23,6 +23,7 @@ namespace Protector
     public partial class Page1 : Page
     {
         private static readonly Regex _regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+        Page2 page = new Page2();
 
         private static bool IsTextAllowed(string text)
         {
@@ -33,21 +34,31 @@ namespace Protector
             InitializeComponent();
         }
 
+        public void Error(string error)
+        {
+
+            errorLabel.Content = error;
+
+        }
+
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ipBox.Text == "" & portBox.Text == "")
+            errorLabel.Content = "";
+            if (ipBox.Text == "")
             {
                 errorLabel.Content = "Please input the server details.";
                 return; 
             }
-            bool success = Page2.InitiateRCON(ipBox.Text, ushort.Parse(portBox.Text), passwordBox.Password);
-            if (success) 
+            int success = page.InitiateRCON(ipBox.Text, ushort.Parse(portBox.Text), passwordBox.Password);
+            if (success == 1) 
             {
-                Page2 page = new Page2();
                 NavigationService.Navigate(page);
-            } else
+            } else if (success == 2)
             {
-                errorLabel.Content =  "There was an error connecting to the RCON";
+                errorLabel.Content =  "There was an error connecting to the RCON server, make sure the ip and port are correct.";
+            } else if (success == 0) 
+            {
+                errorLabel.Content = "Server did not respond, make sure the password is correct.";
             }
             
         }
