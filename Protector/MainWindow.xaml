@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protector"
         mc:Ignorable="d"
-        Title="Espi's Token Protector" Height="450" Width="800" ResizeMode="NoResize" Background="#FF121212" Topmost="False" WindowStyle="None">
+        Title="Espi's RCON Console" Height="450" Width="800" ResizeMode="NoResize" Background="#FF121212" Topmost="False" WindowStyle="None">
     <Grid>
         <Grid x:Name="mainGrid">
             <DockPanel x:Name="topPanel" LastChildFill="False" Margin="0,0,0,424" Background="Black" MouseDown="Panel_MouseDown" HorizontalAlignment="Right" Width="800">
